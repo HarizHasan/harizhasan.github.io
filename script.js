@@ -10,7 +10,7 @@ document.getElementById("sendBtn").addEventListener("click", async () => {
     document.getElementById("userPrompt").value = "";
 
     try {
-        const response = await fetch("http://34.87.59.92:3000/gemini", { // Replace with your proxy server's actual IP or domain
+        const response = await fetch("https://34.87.59.92:3000/gemini", { // Replace with your proxy server's actual IP or domain
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
