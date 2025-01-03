@@ -10,40 +10,43 @@ document.getElementById("sendBtn").addEventListener("click", async () => {
     }
 
     // Clear the textarea
-    document.getElementById("userPrompt").value = "";
-
-    // Send prompt to Google Gemini API
-    try {
-        const response = await fetch(API_URL, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${AUTH}`, // Replace with your API key
-            },
-            body: JSON.stringify({
-                contents: [{ 
-                    role: "user", 
-                    parts: [{ text: userMessage }] 
-                }]
-            }),
-        });
-
-        const data = await response.json();
-
-        if (response.ok) {
-            displayResponse(data.response);
-        } else {
-            displayResponse("Error: Unable to process your request.");
+    document.getElementById("sendBtn").addEventListener("click", async () => {
+        const userPrompt = document.getElementById("userPrompt").value;
+    
+        if (!userPrompt.trim()) {
+            alert("Please enter a prompt!");
+            return;
         }
-    } catch (error) {
-        displayResponse("Error: Something went wrong.");
-        console.error(error);
+    
+        document.getElementById("userPrompt").value = "";
+    
+        try {
+            const response = await fetch("http://34.87.59.92:3000/gemini", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    prompt: userPrompt,
+                }),
+            });
+    
+            const data = await response.json();
+    
+            if (response.ok) {
+                displayResponse(data.response);
+            } else {
+                displayResponse("Error: Unable to process your request.");
+            }
+        } catch (error) {
+            displayResponse("Error: Something went wrong.");
+            console.error(error);
+        }
+    });
+    
+    function displayResponse(message) {
+        const history = document.querySelector(".history");
+        const newMessage = document.createElement("li");
+        newMessage.textContent = message;
+        history.appendChild(newMessage);
     }
-});
-
-function displayResponse(message) {
-    const history = document.querySelector(".history");
-    const newMessage = document.createElement("li");
-    newMessage.textContent = message;
-    history.appendChild(newMessage);
-}
