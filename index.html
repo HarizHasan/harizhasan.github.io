@@ -13,14 +13,11 @@
             <p>Hello, Hafiz Ismail! How can I help you?</p>
         </header>
         <main>
-            <ul class="history">
-                <li class="today">Today</li>
-                <li>Class Schedule</li>
-                <li>FYP Proposal Report Help</li>
-                <li>Summarize Research Paper</li>
+            <ul id="chatHistory" class="chat-history">
+                <!-- Chat messages will dynamically populate here -->
             </ul>
             <div class="chatbox">
-                <textarea id="userPrompt" placeholder="Ask me anything..."></textarea>
+                <input type="text" id="userInput" placeholder="Type your message..." />
                 <button id="sendBtn">Send</button>
             </div>
         </main>
@@ -31,5 +28,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
-<!--E-->

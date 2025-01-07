@@ -31,19 +31,35 @@ header p {
     margin: 5px 0 0;
 }
 
-.history {
-    list-style-type: none;
+.chat-history {
+    list-style: none;
     padding: 15px;
-}
-
-.history li {
-    padding: 10px;
+    margin: 0;
+    height: 300px;
+    overflow-y: auto;
     border-bottom: 1px solid #ddd;
 }
 
-.history .today {
-    font-weight: bold;
-    color: #6200ea;
+.chat-history li {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    max-width: 80%;
+    clear: both;
+}
+
+.chat-history .user {
+    background-color: #e0e0e0;
+    align-self: flex-end;
+    margin-left: auto;
+    text-align: right;
+}
+
+.chat-history .bot {
+    background-color: #6200ea;
+    color: white;
+    align-self: flex-start;
+    margin-right: auto;
 }
 
 .chatbox {
@@ -52,12 +68,11 @@ header p {
     border-top: 1px solid #ddd;
 }
 
-.chatbox textarea {
+.chatbox input {
     flex: 1;
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 10px;
-    resize: none;
     outline: none;
 }
 
