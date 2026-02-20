@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mom's Hydroponics Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Hydroponics Tracker</h1>
+        <p>Happy Birthday Ibu! An app to help with your hydroponics jars.</p>
+    </header>
+
+    <main>
+        <section class="calculator-section">
+            <h2>Nutrient Calculator</h2>
+            <p>Scale down commercial instructions to your jar size.</p>
+            <div class="calculator-inputs">
+                <div>
+                    <label for="jarVolume">Jar Volume (in mL):</label>
+                    <input type="number" id="jarVolume" placeholder="e.g., 500">
+                </div>
+                <div>
+                    <label for="nutrientDose">Recommended Dose (mL per Liter):</label>
+                    <input type="number" id="nutrientDose" placeholder="e.g., 5">
+                </div>
+            </div>
+            <button onclick="calculateNutrients()">Calculate</button>
+            <h3 id="calcResult">You need: 0 mL</h3>
+        </section>
+
+        <hr>
+
+        <section class="tracker-section">
+            <h2>Jar List</h2>
+            <form id="addJarForm">
+                <input type="text" id="jarName" placeholder="What are you growing?" required>
+                <button type="submit">Add New Jar</button>
+            </form>
+
+            <div id="jarContainer" class="jar-grid"></div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
